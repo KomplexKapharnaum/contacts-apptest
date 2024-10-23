@@ -26,6 +26,6 @@ io.on('connection', (socket) => {
     });
 })
 
-server.listen(3007, () => {
-    console.log('listening on *:3007');
+server.listen(9007, () => {
+    console.log('listening on *:9007');
 })
