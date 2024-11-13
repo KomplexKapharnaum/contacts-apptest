@@ -5,6 +5,7 @@ const http = require("http");
 const fs = require("fs");
 const socketIo = require("socket.io");
 const archiver = require("archiver");
+const { exec } = require('child_process');
 
 // Load environment variables from .env file
 const dotenv = require('dotenv');
