@@ -89,33 +89,33 @@ app.get("/downloadMedia/", (req, res) => {
       console.log('ZIP file sent successfully.');
     }
   });
+});
 
-  app.get("/downloadApp/", (req, res) => {
-    const folderPath = path.join(__dirname, "download/app"); // Path to the folder you want to zip
-    const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
+app.get("/downloadApp/", (req, res) => {
+  const folderPath = path.join(__dirname, "download/app"); // Path to the folder you want to zip
+  const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
 
-    // Create a zip archive
-    const archive = archiver("zip", {
-      zlib: { level: 9 } // Sets the compression level
-    });
+  // Create a zip archive
+  const archive = archiver("zip", {
+    zlib: { level: 9 } // Sets the compression level
+  });
 
-    res.attachment(zipFileName); // Set the file name for the download
-    archive.pipe(res); // Pipe the archive to the response
+  res.attachment(zipFileName); // Set the file name for the download
+  archive.pipe(res); // Pipe the archive to the response
 
-    // Append files from the folder
-    archive.directory(folderPath, false); // The second parameter 'false' keeps the folder structure without the base directory
+  // Append files from the folder
+  archive.directory(folderPath, false); // The second parameter 'false' keeps the folder structure without the base directory
 
-    // Finalize the archive (this will end the stream)
-    archive.finalize().catch((err) => {
-      console.error("Erreur lors de la création du zip :", err);
-      res.status(500).send("Erreur lors de la création de l'archive");
-    });
+  // Finalize the archive (this will end the stream)
+  archive.finalize().catch((err) => {
+    console.error("Erreur lors de la création du zip :", err);
+    res.status(500).send("Erreur lors de la création de l'archive");
+  });
 
-    // Handle any errors that occur while zipping
-    archive.on("error", (err) => {
-      console.error("Erreur lors de l'archivage :", err);
-      res.status(500).send("Erreur lors de l'archivage");
-    });
+  // Handle any errors that occur while zipping
+  archive.on("error", (err) => {
+    console.error("Erreur lors de l'archivage :", err);
+    res.status(500).send("Erreur lors de l'archivage");
   });
 });
 
