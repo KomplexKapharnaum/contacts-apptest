@@ -1,0 +1,21 @@
+{
+  "app": {
+    "css": {
+      "css1.css": "css1.css@1731492016935",
+      "css2.css": "css2.css@1731492016935",
+      "css34.css": "css34.css@1731492016935"
+    },
+    "dd.txt": "dd.txt@1731492016935",
+    "js": {
+      "js1.js": "js1.js@1731492016935",
+      "js2.js": "js2.js@1731492016935",
+      "redo_js245.js": "redo_js245.js@1731492016935"
+    },
+    "lirug.txt": "lirug.txt@1731492016935",
+    "truc.txt": "truc.txt@1731492016935"
+  },
+  "media": {
+    "878-200x300.jpg": "878-200x300.jpg@1731492016935",
+    "potato.jpg": "potato.jpg@1731492016935"
+  }
+}
