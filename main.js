@@ -89,7 +89,7 @@ app.get("/downloadMedia/", (req, res) => {
       console.log('ZIP file sent successfully.');
     }
   });
-  
+
   app.get("/downloadApp/", (req, res) => {
     const folderPath = path.join(__dirname, "download/app"); // Path to the folder you want to zip
     const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
@@ -124,7 +124,7 @@ const server = http.createServer(app); // Use HTTPS with your certificates
 // Initialiser Socket.IO sur le serveur HTTPS
 const io = socketIo(server, {
   cors: {
-    origin: "https://localhost",  // Allow connection only from this origin
+    origin: "*",  // Allow connection only from this origin
     methods: ["GET", "POST"],    // Allow these HTTP methods
     allowedHeaders: ["Content-Type"], // Allowed headers
     credentials: true            // Allow cookies/credentials
