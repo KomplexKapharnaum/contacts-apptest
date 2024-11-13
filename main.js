@@ -152,7 +152,7 @@ io.on("connection", (socket) => {
   socket.on('mediaRequest', (mediaNamesArray) => {
     console.log("Media request received for:", mediaNamesArray);
 
-    const dir = "C:/code/cordova_komplex/serveur/downloadMedia";
+    const dir = "./downloadMedia";
     if (!fs.existsSync(dir)) {
       console.log("Creating destination folder");
       fs.mkdirSync(dir);
