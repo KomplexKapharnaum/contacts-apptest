@@ -76,7 +76,7 @@ app.get("/update/", (req, res) => {
 // Route de téléchargement de fichier
 app.get("/downloadMedia/", (req, res) => {
   console.log("Request to download the folder received");
-
+  const zipFilePath = path.join(__dirname, 'downloadMedia.zip');
   if (!fs.existsSync(zipFilePath)) {
     return res.status(404).send('ZIP file not found');
   }
