@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Serveur fonctionnant correctement !");
+  res.send("Serveur fonctionnant correctement !!");
 });
 
 // route de check for update
