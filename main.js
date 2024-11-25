@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html')); // Adjust the path as necessary
+  res.sendFile(path.join(__dirname, 'www/index.html')); // Adjust the path as necessary
 });
 
 // route de check for update
