@@ -34,6 +34,36 @@
     document.getElementById("sendNotif").addEventListener("click", () => {
         console.log("clicked")
         sendNotification(phoneToken, title, msg)
+
+        const auth = new GoogleAuth({
+            keyFile: '../generate-token.js',
+            scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+        });
+
+        async function sendNotification(fcmToken, title, body) {
+            const accessToken = await auth.getAccessToken();
+
+            const response = await axios.post(
+                `https://fcm.googleapis.com/v1/projects/84325436128/messages:send`,
+                {
+                    message: {
+                        token: fcmToken, // The target device's registration token
+                        notification: {
+                            title: title,
+                            body: body,
+                        },
+                    },
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`, // OAuth 2.0 token
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            console.log('Notification sent:', response.data);
+        }
     })
 
 </script>
