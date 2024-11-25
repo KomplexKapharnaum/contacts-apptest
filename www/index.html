@@ -24,7 +24,7 @@
 </body>
 
 </html>
-<!-- <script src="../js/notif.js"></script> -->
+<script src="../js/notif.js"></script>
 
 <script>
     let title = document.getElementById("title").value
@@ -36,37 +36,4 @@
         sendNotification(phoneToken, title, msg)
     })
 
-    async function sendNotification(fcmToken, title, body) {
-    const auth = new GoogleAuth({
-        keyFile: '../generate-token.js',
-        scopes: ['https://www.googleapis.com/auth/cloud-platform'],
-    });
-
-    const accessToken = await auth.getAccessToken();
-
-    const response = await axios.post(
-        `https://fcm.googleapis.com/v1/projects/84325436128/messages:send`,
-        {
-            message: {
-                token: fcmToken, // The target device's registration token
-                notification: {
-                    title: title,
-                    body: body,
-                },
-            },
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${accessToken}`, // OAuth 2.0 token
-                'Content-Type': 'application/json',
-            },
-        }
-    );
-
-    console.log('Notification sent:', response.data);
-
-    // Example usage
-    // sendNotification('<DEVICE_FCM_TOKEN>', 'Hello!', 'This is a test notification.');
-
-}
 </script>
