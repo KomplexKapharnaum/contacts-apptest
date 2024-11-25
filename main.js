@@ -58,8 +58,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, 'www')));
+
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/index.html')); // Adjust the path as necessary
+    res.sendFile(path.join(__dirname, 'www/index.html'));
 });
 
 // route de check for update
