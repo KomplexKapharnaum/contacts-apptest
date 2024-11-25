@@ -341,36 +341,49 @@ server.listen(PORT, () => {
 // //////////////////////////////////////////////////////////////
 // firebase 
 // //////////////////////////////////////////////////////////////
-async function sendNotification(fcmToken, title, body) {
-    const auth = new GoogleAuth({
-        keyFile: '../generate-token.js',
-        scopes: ['https://www.googleapis.com/auth/cloud-platform'],
-    });
+app.post('/send-notification', async (req, res) => {
+  const { fcmToken, title, body } = req.body;
 
-    const accessToken = await auth.getAccessToken();
+  if (!fcmToken || !title || !body) {
+      return res.status(400).send('Missing required fields');
+  }
 
-    const response = await axios.post(
-        `https://fcm.googleapis.com/v1/projects/84325436128/messages:send`,
-        {
-            message: {
-                token: fcmToken, // The target device's registration token
-                notification: {
-                    title: title,
-                    body: body,
-                },
-            },
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${accessToken}`, // OAuth 2.0 token
-                'Content-Type': 'application/json',
-            },
-        }
-    );
+  try {
+      const auth = new GoogleAuth({
+          keyFile: 'generate-token.js',
+          scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+      });
 
-    console.log('Notification sent:', response.data);
+      const accessToken = await auth.getAccessToken();
 
-    // Example usage
-    // sendNotification('<DEVICE_FCM_TOKEN>', 'Hello!', 'This is a test notification.');
+      const response = await axios.post(
+          `https://fcm.googleapis.com/v1/projects/84325436128/messages:send`,
+          {
+              message: {
+                  token: fcmToken,
+                  notification: {
+                      title: title,
+                      body: body,
+                  },
+              },
+          },
+          {
+              headers: {
+                  Authorization: `Bearer ${accessToken}`,
+                  'Content-Type': 'application/json',
+              },
+          }
+      );
 
-}
+      console.log('Notification sent:', response.data);
+      res.status(200).send('Notification sent successfully!');
+  } catch (error) {
+      console.error('Error sending notification:', error);
+      res.status(500).send('Error sending notification');
+  }
+});
+
+// Serve the HTML page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'www/index.html'));
+});
