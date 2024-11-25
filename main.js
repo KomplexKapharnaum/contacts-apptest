@@ -34,6 +34,7 @@ const app = express();
 // Middlewares
 app.use(bodyParser.json());
 app.use(webhookHandler);
+app.use('/js', express.static(path.join(__dirname, 'www/js')));
 
 // HOOKS
 webhookHandler.on('*', function (event, repo, data) {
