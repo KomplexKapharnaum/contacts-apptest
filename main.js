@@ -67,6 +67,7 @@ app.get("/", (req, res) => {
 
 // route de check for update
 app.get("/update/", (req, res) => {
+
   const filePath = path.join(__dirname, "download", "fileStructure.json");
 
   // Envoyer le fichier en réponse
@@ -286,19 +287,36 @@ function findAllFile(directoryPath) {
 }
 
 function scanDirectory(directoryPath, basePath) {
-  const structure = {};
+    const jsonFilePath = path.join(directoryPath, 'fileStructure.json');
+  let structure = {};
+
+  // Check if the JSON file exists; if not, create it with an empty object
+  if (!fs.existsSync(jsonFilePath)) {
+    console.log(`Creating ${jsonFilePath}...`);
+    fs.writeFileSync(jsonFilePath, JSON.stringify({}, null, 2), 'utf-8');
+  } else {
+    // Read existing structure if the file exists
+    console.log(`Loading existing structure from ${jsonFilePath}...`);
+    const existingData = fs.readFileSync(jsonFilePath, 'utf-8');
+    structure = existingData ? JSON.parse(existingData) : {};
+  }
+
   const items = fs.readdirSync(directoryPath, { withFileTypes: true });
 
   items.forEach((item) => {
     const fullPath = path.join(directoryPath, item.name);
 
     if (item.isDirectory()) {
-      structure[item.name] = scanDirectory(fullPath, basePath); // Appel récursif pour les dossiers
-    } else if (item.name != "fileStructure.json") {
-      structure[item.name] = item.name + "@" + Date.now(); // Utiliser uniquement le nom du fichier
+      // Recursive call for subdirectories
+      structure[item.name] = scanDirectory(fullPath, basePath);
+    } else if (item.name !== 'fileStructure.json') {
+      // Update the structure with file metadata
+      structure[item.name] = item.name + '@' + Date.now();
     }
   });
 
+  // Save the updated structure to the JSON file
+  fs.writeFileSync(jsonFilePath, JSON.stringify(structure, null, 2), 'utf-8');
   return structure;
 }
 
