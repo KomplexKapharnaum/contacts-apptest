@@ -1,0 +1,374 @@
+{
+  "_legacy": {
+    "_app": {
+      "assets": {
+        "bal1.png": "bal1.png@1732618183338",
+        "bal2.png": "bal2.png@1732618183338",
+        "body-full-hitbox.svg": "body-full-hitbox.svg@1732618183338",
+        "body-full.png": "body-full.png@1732618183338",
+        "body-full.svg": "body-full.svg@1732618183338",
+        "brain.png": "brain.png@1732618183338",
+        "choix_animal.png": "choix_animal.png@1732618183338",
+        "choix_plante.png": "choix_plante.png@1732618183338",
+        "cow.png": "cow.png@1732618183339",
+        "cow_skeleton.png": "cow_skeleton.png@1732618183339",
+        "door.png": "door.png@1732618183339",
+        "duck.png": "duck.png@1732618183339",
+        "duck_donk.png": "duck_donk.png@1732618183339",
+        "face_parts.png": "face_parts.png@1732618183339",
+        "face_parts_mask.svg": "face_parts_mask.svg@1732618183339",
+        "flowers": {
+          "0.png": "0.png@1732618183339",
+          "1.png": "1.png@1732618183339",
+          "2.png": "2.png@1732618183339",
+          "3.png": "3.png@1732618183339",
+          "4.png": "4.png@1732618183339",
+          "5.png": "5.png@1732618183339"
+        },
+        "hand_left.png": "hand_left.png@1732618183339",
+        "hand_right.png": "hand_right.png@1732618183339",
+        "lock_off.png": "lock_off.png@1732618183339",
+        "lock_on.png": "lock_on.png@1732618183339",
+        "man.png": "man.png@1732618183339",
+        "mask.png": "mask.png@1732618183339",
+        "mask_man.png": "mask_man.png@1732618183339",
+        "move.png": "move.png@1732618183339",
+        "pump_base.png": "pump_base.png@1732618183339",
+        "pump_handle.png": "pump_handle.png@1732618183339",
+        "pupil.png": "pupil.png@1732618183339",
+        "pupil.svg": "pupil.svg@1732618183339",
+        "rode.png": "rode.png@1732618183339",
+        "scar_knife.png": "scar_knife.png@1732618183339",
+        "seringe.png": "seringe.png@1732618183339",
+        "socle.png": "socle.png@1732618183339"
+      },
+      "css": {
+        "forms.css": "forms.css@1732618183339",
+        "normalize.css": "normalize.css@1732618183339",
+        "style.css": "style.css@1732618183339"
+      },
+      "fonts": {
+        "FT88-Italic.ttf": "FT88-Italic.ttf@1732618183339",
+        "FT88-Regular.ttf": "FT88-Regular.ttf@1732618183339",
+        "font.css": "font.css@1732618183339"
+      },
+      "imgs": {
+        "bg.jpg": "bg.jpg@1732618183340"
+      },
+      "index.html": "index.html@1732618183340",
+      "js": {
+        "graphics.js": "graphics.js@1732618183340",
+        "libs": {
+          "perlin.js": "perlin.js@1732618183340"
+        },
+        "main.js": "main.js@1732618183340",
+        "questions.js": "questions.js@1732618183340",
+        "requests.js": "requests.js@1732618183340",
+        "slider.js": "slider.js@1732618183340",
+        "util.js": "util.js@1732618183340"
+      }
+    },
+    "models": {
+      "A10_fourmi_00076_.png": "A10_fourmi_00076_.png@1732618183340",
+      "A11_PIG_00011.png": "A11_PIG_00011.png@1732618183340",
+      "A12_jellyfish_00092_.png": "A12_jellyfish_00092_.png@1732618183340",
+      "A1_snake_00007_ copie.png": "A1_snake_00007_ copie.png@1732618183340",
+      "A2_araigneV2_00007_.png": "A2_araigneV2_00007_.png@1732618183340",
+      "A3_nasique_00040_copie.png": "A3_nasique_00040_copie.png@1732618183340",
+      "A4_lombric_00018_ .png": "A4_lombric_00018_ .png@1732618183340",
+      "A5_grenouille_00070_.png": "A5_grenouille_00070_.png@1732618183340",
+      "A6_loup_00017_ copie 2.png": "A6_loup_00017_ copie 2.png@1732618183340",
+      "A7_PIG_00188_.png": "A7_PIG_00188_.png@1732618183340",
+      "A9_PIG_00012_copie.png": "A9_PIG_00012_copie.png@1732618183340",
+      "a8_madame poisson_2.png": "a8_madame poisson_2.png@1732618183340",
+      "v10_algue_00009_.png": "v10_algue_00009_.png@1732618183340",
+      "v11_coriandre_00043_.png": "v11_coriandre_00043_.png@1732618183340",
+      "v12_algue_00039_.png": "v12_algue_00039_.png@1732618183340",
+      "v1_jellyfish_00111_ (1).png": "v1_jellyfish_00111_ (1).png@1732618183340",
+      "v2_PIG_00113_.png": "v2_PIG_00113_.png@1732618183340",
+      "v3_jellyfish_00184_.png": "v3_jellyfish_00184_.png@1732618183340",
+      "v4_madame brocoli.jpg": "v4_madame brocoli.jpg@1732618183340",
+      "v5_jellyfish_00118_.png": "v5_jellyfish_00118_.png@1732618183340",
+      "v6_jellyfish_00025_.png": "v6_jellyfish_00025_.png@1732618183340",
+      "v7_jellyfish_00168_.png": "v7_jellyfish_00168_.png@1732618183340",
+      "v8_champi_pierre_00034_.png": "v8_champi_pierre_00034_.png@1732618183340",
+      "v9_jellyfish_00201_.png": "v9_jellyfish_00201_.png@1732618183340"
+    },
+    "outputs": {
+      "outputs-here": "outputs-here@1732618183341"
+    },
+    "server.js": "server.js@1732618183341",
+    "uploads": {
+      "selfies-here": "selfies-here@1732618183341"
+    },
+    "www": {
+      "app.html": "app.html@1732618183341",
+      "assets": {
+        "bal1.png": "bal1.png@1732618183341",
+        "bal2.png": "bal2.png@1732618183341",
+        "body-full-hitbox.svg": "body-full-hitbox.svg@1732618183341",
+        "body-full.png": "body-full.png@1732618183341",
+        "body-full.svg": "body-full.svg@1732618183341",
+        "brain.png": "brain.png@1732618183341",
+        "choix_animal.png": "choix_animal.png@1732618183341",
+        "choix_plante.png": "choix_plante.png@1732618183341",
+        "cow.png": "cow.png@1732618183341",
+        "cow_skeleton.png": "cow_skeleton.png@1732618183341",
+        "door.png": "door.png@1732618183341",
+        "duck.png": "duck.png@1732618183341",
+        "duck_donk.png": "duck_donk.png@1732618183341",
+        "face_parts.png": "face_parts.png@1732618183341",
+        "face_parts_mask.svg": "face_parts_mask.svg@1732618183341",
+        "flowers": {
+          "0.png": "0.png@1732618183341",
+          "1.png": "1.png@1732618183341",
+          "2.png": "2.png@1732618183341",
+          "3.png": "3.png@1732618183341",
+          "4.png": "4.png@1732618183341",
+          "5.png": "5.png@1732618183341"
+        },
+        "hand_left.png": "hand_left.png@1732618183341",
+        "hand_right.png": "hand_right.png@1732618183341",
+        "lock_off.png": "lock_off.png@1732618183341",
+        "lock_on.png": "lock_on.png@1732618183341",
+        "man.png": "man.png@1732618183341",
+        "mask.png": "mask.png@1732618183341",
+        "mask_man.png": "mask_man.png@1732618183341",
+        "move.png": "move.png@1732618183341",
+        "pump_base.png": "pump_base.png@1732618183341",
+        "pump_handle.png": "pump_handle.png@1732618183341",
+        "pupil.png": "pupil.png@1732618183341",
+        "pupil.svg": "pupil.svg@1732618183341",
+        "rode.png": "rode.png@1732618183341",
+        "scar_knife.png": "scar_knife.png@1732618183341",
+        "seringe.png": "seringe.png@1732618183341",
+        "socle.png": "socle.png@1732618183341"
+      },
+      "css": {
+        "forms.css": "forms.css@1732618183341",
+        "normalize.css": "normalize.css@1732618183341",
+        "style.css": "style.css@1732618183341",
+        "totem.css": "totem.css@1732618183341"
+      },
+      "fonts": {
+        "FT88-Italic.ttf": "FT88-Italic.ttf@1732618183341",
+        "FT88-Regular.ttf": "FT88-Regular.ttf@1732618183342",
+        "font.css": "font.css@1732618183342"
+      },
+      "imgs": {
+        "bg.jpg": "bg.jpg@1732618183342"
+      },
+      "js": {
+        "graphics.js": "graphics.js@1732618183342",
+        "libs": {
+          "perlin.js": "perlin.js@1732618183342"
+        },
+        "main.js": "main.js@1732618183342",
+        "questions.js": "questions.js@1732618183342",
+        "requests.js": "requests.js@1732618183342",
+        "slider.js": "slider.js@1732618183342",
+        "totem.js": "totem.js@1732618183342",
+        "util.js": "util.js@1732618183342"
+      },
+      "old": {
+        "app.css": "app.css@1732618183342",
+        "app.html": "app.html@1732618183342",
+        "app.js": "app.js@1732618183342",
+        "img": {
+          "loading.gif": "loading.gif@1732618183342"
+        }
+      },
+      "totem.html": "totem.html@1732618183342"
+    }
+  },
+  "certs": {
+    "server.cert": "server.cert@1732618183343",
+    "server.key": "server.key@1732618183343"
+  },
+  "database": {
+    ".gitkeep": ".gitkeep@1732618183343"
+  },
+  "media": {
+    ".gitkeep": ".gitkeep@1732618183343"
+  },
+  "models": {
+    "avatar.js": "avatar.js@1732618183343",
+    "event.js": "event.js@1732618183343",
+    "genjob.js": "genjob.js@1732618183343",
+    "group.js": "group.js@1732618183343",
+    "message.js": "message.js@1732618183343",
+    "model.js": "model.js@1732618183343",
+    "preset.js": "preset.js@1732618183343",
+    "session.js": "session.js@1732618183343",
+    "user.js": "user.js@1732618183343"
+  },
+  "outputs": {
+    ".gitkeep": ".gitkeep@1732618183343"
+  },
+  "tools": {
+    "cipher.js": "cipher.js@1732618183343",
+    "cuicli.js": "cuicli.js@1732618183343",
+    "db.js": "db.js@1732618183343",
+    "sms_hico.js": "sms_hico.js@1732618183343",
+    "sms_hico.js.txt": "sms_hico.js.txt@1732618183343",
+    "sms_ovh.js": "sms_ovh.js@1732618183343",
+    "worker.js": "worker.js@1732618183343"
+  },
+  "upload": {
+    ".gitkeep": ".gitkeep@1732618183343"
+  },
+  "workflows": {
+    "faceswap.js": "faceswap.js@1732618183344",
+    "faceswap.json": "faceswap.json@1732618183344"
+  },
+  "www": {
+    "admin": {
+      "admin.css": "admin.css@1732618183344",
+      "admin.html": "admin.html@1732618183344",
+      "admin.js": "admin.js@1732618183344",
+      "new": {
+        "admin.css": "admin.css@1732618183344",
+        "admin.js": "admin.js@1732618183344",
+        "index.html": "index.html@1732618183344",
+        "models.css": "models.css@1732618183344",
+        "models.js": "models.js@1732618183344"
+      },
+      "sms.js": "sms.js@1732618183344",
+      "sms_form.html": "sms_form.html@1732618183344"
+    },
+    "app": {
+      "app.html": "app.html@1732618183344",
+      "app.webmanifest": "app.webmanifest@1732618183344",
+      "css": {
+        "avatar_questions.css": "avatar_questions.css@1732618183344",
+        "main.css": "main.css@1732618183344"
+      },
+      "font": {
+        "version50_bold.ttf": "version50_bold.ttf@1732618183344",
+        "version50_regular.ttf": "version50_regular.ttf@1732618183344",
+        "wondertype.otf": "wondertype.otf@1732618183344"
+      },
+      "img": {
+        "clock": {
+          "bg.png": "bg.png@1732618183345",
+          "big.png": "big.png@1732618183345",
+          "small.png": "small.png@1732618183345"
+        },
+        "clock.png": "clock.png@1732618183345",
+        "crayon.png": "crayon.png@1732618183345",
+        "install.png": "install.png@1732618183345",
+        "mask.png": "mask.png@1732618183345",
+        "party.png": "party.png@1732618183345",
+        "phone.png": "phone.png@1732618183345",
+        "pin.png": "pin.png@1732618183345",
+        "qrcode.png": "qrcode.png@1732618183345",
+        "questions": {
+          "body-full.png": "body-full.png@1732618183345",
+          "cow.png": "cow.png@1732618183345",
+          "cow_skeleton.png": "cow_skeleton.png@1732618183345",
+          "mask.png": "mask.png@1732618183345",
+          "mask_man.png": "mask_man.png@1732618183345",
+          "move.png": "move.png@1732618183345"
+        },
+        "sun.png": "sun.png@1732618183345",
+        "triangle.png": "triangle.png@1732618183345"
+      },
+      "js": {
+        "canvas.js": "canvas.js@1732618183345",
+        "chat.js": "chat.js@1732618183345",
+        "libs": {
+          "nosleep.js": "nosleep.js@1732618183345"
+        },
+        "main.js": "main.js@1732618183345",
+        "network.js": "network.js@1732618183345",
+        "pages": {
+          "avatar.js": "avatar.js@1732618183345",
+          "evenements.js": "evenements.js@1732618183345",
+          "msg_box.js": "msg_box.js@1732618183345",
+          "onboarding.js": "onboarding.js@1732618183345"
+        },
+        "qrcode.min.js": "qrcode.min.js@1732618183345",
+        "shader.js": "shader.js@1732618183345",
+        "sw.js": "sw.js@1732618183345"
+      },
+      "msg_box.html": "msg_box.html@1732618183345"
+    },
+    "ar": {
+      "fonts": {
+        "ark.otf": "ark.otf@1732618183345",
+        "avenir.otf": "avenir.otf@1732618183345"
+      },
+      "index.html": "index.html@1732618183346",
+      "js": {
+        "aframe.js": "aframe.js@1732618183346",
+        "main.js": "main.js@1732618183346",
+        "mindar-image-aframe.js": "mindar-image-aframe.js@1732618183346",
+        "randomizers.js": "randomizers.js@1732618183346",
+        "shader.js": "shader.js@1732618183346"
+      },
+      "markers": {
+        "qr_code.mind": "qr_code.mind@1732618183346"
+      },
+      "models": {
+        "cropped.glb": "cropped.glb@1732618183346",
+        "model.glb": "model.glb@1732618183346",
+        "organic.glb": "organic.glb@1732618183346",
+        "pixel.glb": "pixel.glb@1732618183346",
+        "spike.glb": "spike.glb@1732618183346",
+        "sun.glb": "sun.glb@1732618183346"
+      },
+      "scan_reference.png": "scan_reference.png@1732618183346",
+      "style.css": "style.css@1732618183346",
+      "textures": {
+        "ai_avatar.png": "ai_avatar.png@1732618183346",
+        "cabbage.png": "cabbage.png@1732618183346",
+        "crt.png": "crt.png@1732618183346",
+        "default.jpg": "default.jpg@1732618183346",
+        "digital.png": "digital.png@1732618183346",
+        "digital2.png": "digital2.png@1732618183346",
+        "fire.png": "fire.png@1732618183346",
+        "fur.png": "fur.png@1732618183346",
+        "leave.png": "leave.png@1732618183346",
+        "mask_pix.png": "mask_pix.png@1732618183346",
+        "paint.png": "paint.png@1732618183346",
+        "paint2.png": "paint2.png@1732618183346",
+        "pcb.png": "pcb.png@1732618183346",
+        "pixels.png": "pixels.png@1732618183346",
+        "portal.png": "portal.png@1732618183346"
+      }
+    },
+    "index.html": "index.html@1732618183346",
+    "media": {
+      "list.html": "list.html@1732618183346",
+      "list.js": "list.js@1732618183346"
+    },
+    "pwa": {
+      "actions.js": "actions.js@1732618183346",
+      "app.html": "app.html@1732618183346",
+      "app.js": "app.js@1732618183346",
+      "app.webmanifest": "app.webmanifest@1732618183346",
+      "icons": {
+        "favicon.ico": "favicon.ico@1732618183347",
+        "icon-128.png": "icon-128.png@1732618183347",
+        "icon-168.png": "icon-168.png@1732618183347",
+        "icon-192.png": "icon-192.png@1732618183347",
+        "icon-256.png": "icon-256.png@1732618183347",
+        "icon-32.png": "icon-32.png@1732618183347",
+        "icon-512.png": "icon-512.png@1732618183347",
+        "icon-64.png": "icon-64.png@1732618183347",
+        "icon-96.png": "icon-96.png@1732618183347"
+      },
+      "style.css": "style.css@1732618183347",
+      "sw.js": "sw.js@1732618183347"
+    },
+    "regie": {
+      "index.html": "index.html@1732618183347",
+      "js": {
+        "icon.js": "icon.js@1732618183347",
+        "pages.js": "pages.js@1732618183347",
+        "regie.js": "regie.js@1732618183347"
+      },
+      "main.css": "main.css@1732618183347"
+    }
+  }
+}

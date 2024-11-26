@@ -1,0 +1,25 @@
+{
+  "clock": {
+    "bg.png": "bg.png@1732614215099",
+    "big.png": "big.png@1732614215099",
+    "small.png": "small.png@1732614215099"
+  },
+  "clock.png": "clock.png@1732614215099",
+  "crayon.png": "crayon.png@1732614215099",
+  "install.png": "install.png@1732614215099",
+  "mask.png": "mask.png@1732614215099",
+  "party.png": "party.png@1732614215099",
+  "phone.png": "phone.png@1732614215099",
+  "pin.png": "pin.png@1732614215099",
+  "qrcode.png": "qrcode.png@1732614215099",
+  "questions": {
+    "body-full.png": "body-full.png@1732614215100",
+    "cow.png": "cow.png@1732614215100",
+    "cow_skeleton.png": "cow_skeleton.png@1732614215100",
+    "mask.png": "mask.png@1732614215100",
+    "mask_man.png": "mask_man.png@1732614215100",
+    "move.png": "move.png@1732614215100"
+  },
+  "sun.png": "sun.png@1732614215100",
+  "triangle.png": "triangle.png@1732614215100"
+}

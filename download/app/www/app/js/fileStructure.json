@@ -1,0 +1,18 @@
+{
+  "canvas.js": "canvas.js@1732614215100",
+  "chat.js": "chat.js@1732614215100",
+  "libs": {
+    "nosleep.js": "nosleep.js@1732614215100"
+  },
+  "main.js": "main.js@1732614215101",
+  "network.js": "network.js@1732614215101",
+  "pages": {
+    "avatar.js": "avatar.js@1732614215101",
+    "evenements.js": "evenements.js@1732614215101",
+    "msg_box.js": "msg_box.js@1732614215101",
+    "onboarding.js": "onboarding.js@1732614215101"
+  },
+  "qrcode.min.js": "qrcode.min.js@1732614215101",
+  "shader.js": "shader.js@1732614215101",
+  "sw.js": "sw.js@1732614215101"
+}

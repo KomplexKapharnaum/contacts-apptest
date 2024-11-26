@@ -31,6 +31,9 @@ initializeWatcher();
 // Configuration du serveur
 const app = express();
 
+// create JSON tree
+createJsonIfNotExist()
+
 // Middlewares
 app.use(bodyParser.json());
 app.use(webhookHandler);
@@ -68,7 +71,7 @@ app.get("/", (req, res) => {
 // route de check for update
 app.get("/update/", (req, res) => {
 
-  const filePath = path.join(__dirname, "download", "fileStructure.json");
+  const filePath = "./download/app/fileStructure.json";
 
   // Envoyer le fichier en réponse
   res.download(filePath, (err) => {
@@ -280,20 +283,22 @@ function findAllFile(directoryPath) {
   return null;
 }
 
-function scanDirectory(directoryPath, basePath) {
-    const jsonFilePath = path.join(directoryPath, 'fileStructure.json');
-  let structure = {};
-
-  // Check if the JSON file exists; if not, create it with an empty object
+function createJsonIfNotExist(){
+  let jsonFilePath = "./download/app/fileStructure.json"
   if (!fs.existsSync(jsonFilePath)) {
     console.log(`Creating ${jsonFilePath}...`);
     fs.writeFileSync(jsonFilePath, JSON.stringify({}, null, 2), 'utf-8');
-  } else {
+  } 
+}
+
+function scanDirectory(directoryPath, basePath) {
+    const jsonFilePath = path.join("./download/app", 'fileStructure.json');
+  let structure = {};
+
     // Read existing structure if the file exists
-    console.log(`Loading existing structure from ${jsonFilePath}...`);
-    const existingData = fs.readFileSync(jsonFilePath, 'utf-8');
-    structure = existingData ? JSON.parse(existingData) : {};
-  }
+    // console.log(`Loading existing structure from ${jsonFilePath}...`);
+    // const existingData = fs.readFileSync(jsonFilePath, 'utf-8');
+    // structure = existingData ? JSON.parse(existingData) : {};
 
   const items = fs.readdirSync(directoryPath, { withFileTypes: true });
 
@@ -333,14 +338,14 @@ function findAllFileAndUpdateJson(outputPath, baseDirectory) {
 
   if (allFilePath) {
     console.log(`Dossier trouvé à: ${allFilePath}`);
-    updateJSONWithFileStructure(outputPath, allFilePath); // Si trouvé, mettre à jour le JSON
+    updateJSONWithFileStructure(outputPath, allFilePath + "/app"); // Si trouvé, mettre à jour le JSON
   } else {
     console.log('Le dossier "app" n\'a pas été trouvé.');
   }
 }
 
 // Exemple d'utilisation
-const outputPath = './download/fileStructure.json'; // Chemin du fichier JSON de sortie
+const outputPath = './download/app/fileStructure.json'; // Chemin du fichier JSON de sortie
 const directoryPath = './download'; // Répertoire de base où chercher "app"
 findAllFileAndUpdateJson(outputPath, directoryPath);
 
