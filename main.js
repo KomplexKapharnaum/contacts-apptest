@@ -101,7 +101,7 @@ app.get("/downloadMedia/", (req, res) => {
 });
 
 app.get("/downloadApp/", (req, res) => {
-  console.log("access to downloadApp path //////////////////////////////////////////////////")
+  console.log("access to downloadApp path")
   const folderPath = path.join(__dirname, "./download/app"); // Path to the folder you want to zip
   const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
 
