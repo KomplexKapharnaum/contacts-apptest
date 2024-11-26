@@ -530,3 +530,6 @@ document.addEventListener('click', function enableNoSleep() {
     document.removeEventListener('click', enableNoSleep, false);
     noSleep.enable();
   }, false);
+
+// GO
+PAGES.goto('loading');
