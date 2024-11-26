@@ -1,192 +1,59 @@
 {
-  "certs": {
-    "server.cert": "server.cert@1732628931709",
-    "server.key": "server.key@1732628931709"
-  },
-  "database": {
-    ".gitkeep": ".gitkeep@1732628931710"
-  },
-  "media": {
-    ".gitkeep": ".gitkeep@1732628931710"
-  },
-  "models": {
-    "avatar.js": "avatar.js@1732628931710",
-    "event.js": "event.js@1732628931710",
-    "genjob.js": "genjob.js@1732628931710",
-    "group.js": "group.js@1732628931710",
-    "message.js": "message.js@1732628931710",
-    "model.js": "model.js@1732628931710",
-    "preset.js": "preset.js@1732628931710",
-    "session.js": "session.js@1732628931710",
-    "user.js": "user.js@1732628931710"
-  },
-  "outputs": {
-    ".gitkeep": ".gitkeep@1732628931710"
-  },
-  "tools": {
-    "cipher.js": "cipher.js@1732628931710",
-    "cuicli.js": "cuicli.js@1732628931710",
-    "db.js": "db.js@1732628931711",
-    "sms_hico.js": "sms_hico.js@1732628931711",
-    "sms_hico.js.txt": "sms_hico.js.txt@1732628931711",
-    "sms_ovh.js": "sms_ovh.js@1732628931711",
-    "worker.js": "worker.js@1732628931711"
-  },
-  "upload": {
-    ".gitkeep": ".gitkeep@1732628931711"
-  },
-  "workflows": {
-    "faceswap.js": "faceswap.js@1732628931711",
-    "faceswap.json": "faceswap.json@1732628931711"
-  },
   "www": {
-    "admin": {
-      "admin.css": "admin.css@1732628931711",
-      "admin.html": "admin.html@1732628931711",
-      "admin.js": "admin.js@1732628931711",
-      "new": {
-        "admin.css": "admin.css@1732628931711",
-        "admin.js": "admin.js@1732628931711",
-        "index.html": "index.html@1732628931711",
-        "models.css": "models.css@1732628931711",
-        "models.js": "models.js@1732628931711"
-      },
-      "sms.js": "sms.js@1732628931711",
-      "sms_form.html": "sms_form.html@1732628931711"
+    "app.html": "app.html@1732634586770",
+    "app.webmanifest": "app.webmanifest@1732634586770",
+    "css": {
+      "avatar_questions.css": "avatar_questions.css@1732634586770",
+      "main.css": "main.css@1732634586770"
     },
-    "app": {
-      "app.html": "app.html@1732628931712",
-      "app.webmanifest": "app.webmanifest@1732628931712",
-      "css": {
-        "avatar_questions.css": "avatar_questions.css@1732628931712",
-        "main.css": "main.css@1732628931712"
-      },
-      "font": {
-        "version50_bold.ttf": "version50_bold.ttf@1732628931712",
-        "version50_regular.ttf": "version50_regular.ttf@1732628931712",
-        "wondertype.otf": "wondertype.otf@1732628931712"
-      },
-      "img": {
-        "clock": {
-          "bg.png": "bg.png@1732628931712",
-          "big.png": "big.png@1732628931712",
-          "small.png": "small.png@1732628931712"
-        },
-        "clock.png": "clock.png@1732628931713",
-        "crayon.png": "crayon.png@1732628931713",
-        "install.png": "install.png@1732628931713",
-        "mask.png": "mask.png@1732628931713",
-        "party.png": "party.png@1732628931713",
-        "phone.png": "phone.png@1732628931713",
-        "pin.png": "pin.png@1732628931713",
-        "qrcode.png": "qrcode.png@1732628931713",
-        "questions": {
-          "body-full.png": "body-full.png@1732628931713",
-          "cow.png": "cow.png@1732628931713",
-          "cow_skeleton.png": "cow_skeleton.png@1732628931713",
-          "mask.png": "mask.png@1732628931713",
-          "mask_man.png": "mask_man.png@1732628931713",
-          "move.png": "move.png@1732628931713"
-        },
-        "sun.png": "sun.png@1732628931713",
-        "triangle.png": "triangle.png@1732628931713"
-      },
-      "js": {
-        "canvas.js": "canvas.js@1732628931714",
-        "chat.js": "chat.js@1732628931714",
-        "libs": {
-          "nosleep.js": "nosleep.js@1732628931714"
-        },
-        "main.js": "main.js@1732628931714",
-        "network.js": "network.js@1732628931714",
-        "pages": {
-          "avatar.js": "avatar.js@1732628931714",
-          "evenements.js": "evenements.js@1732628931714",
-          "msg_box.js": "msg_box.js@1732628931714",
-          "onboarding.js": "onboarding.js@1732628931714"
-        },
-        "qrcode.min.js": "qrcode.min.js@1732628931714",
-        "shader.js": "shader.js@1732628931714",
-        "sw.js": "sw.js@1732628931714"
-      },
-      "msg_box.html": "msg_box.html@1732628931714"
+    "font": {
+      "version50_bold.ttf": "version50_bold.ttf@1732634586771",
+      "version50_regular.ttf": "version50_regular.ttf@1732634586771",
+      "wondertype.otf": "wondertype.otf@1732634586771"
     },
-    "ar": {
-      "fonts": {
-        "ark.otf": "ark.otf@1732628931715",
-        "avenir.otf": "avenir.otf@1732628931715"
+    "img": {
+      "clock": {
+        "bg.png": "bg.png@1732634586771",
+        "big.png": "big.png@1732634586771",
+        "small.png": "small.png@1732634586771"
       },
-      "index.html": "index.html@1732628931715",
-      "js": {
-        "aframe.js": "aframe.js@1732628931715",
-        "main.js": "main.js@1732628931715",
-        "mindar-image-aframe.js": "mindar-image-aframe.js@1732628931715",
-        "randomizers.js": "randomizers.js@1732628931715",
-        "shader.js": "shader.js@1732628931715"
+      "clock.png": "clock.png@1732634586771",
+      "crayon.png": "crayon.png@1732634586771",
+      "install.png": "install.png@1732634586771",
+      "mask.png": "mask.png@1732634586771",
+      "party.png": "party.png@1732634586771",
+      "phone.png": "phone.png@1732634586771",
+      "pin.png": "pin.png@1732634586771",
+      "qrcode.png": "qrcode.png@1732634586771",
+      "questions": {
+        "body-full.png": "body-full.png@1732634586771",
+        "cow.png": "cow.png@1732634586772",
+        "cow_skeleton.png": "cow_skeleton.png@1732634586772",
+        "mask.png": "mask.png@1732634586772",
+        "mask_man.png": "mask_man.png@1732634586772",
+        "move.png": "move.png@1732634586772"
       },
-      "markers": {
-        "qr_code.mind": "qr_code.mind@1732628931715"
-      },
-      "models": {
-        "cropped.glb": "cropped.glb@1732628931716",
-        "model.glb": "model.glb@1732628931716",
-        "organic.glb": "organic.glb@1732628931716",
-        "pixel.glb": "pixel.glb@1732628931716",
-        "spike.glb": "spike.glb@1732628931716",
-        "sun.glb": "sun.glb@1732628931716"
-      },
-      "scan_reference.png": "scan_reference.png@1732628931716",
-      "style.css": "style.css@1732628931716",
-      "textures": {
-        "ai_avatar.png": "ai_avatar.png@1732628931716",
-        "cabbage.png": "cabbage.png@1732628931716",
-        "crt.png": "crt.png@1732628931716",
-        "default.jpg": "default.jpg@1732628931716",
-        "digital.png": "digital.png@1732628931716",
-        "digital2.png": "digital2.png@1732628931716",
-        "fire.png": "fire.png@1732628931716",
-        "fur.png": "fur.png@1732628931716",
-        "leave.png": "leave.png@1732628931716",
-        "mask_pix.png": "mask_pix.png@1732628931716",
-        "paint.png": "paint.png@1732628931716",
-        "paint2.png": "paint2.png@1732628931716",
-        "pcb.png": "pcb.png@1732628931716",
-        "pixels.png": "pixels.png@1732628931716",
-        "portal.png": "portal.png@1732628931716"
-      }
+      "sun.png": "sun.png@1732634586772",
+      "triangle.png": "triangle.png@1732634586772"
     },
-    "index.html": "index.html@1732628931717",
-    "media": {
-      "list.html": "list.html@1732628931717",
-      "list.js": "list.js@1732628931717"
-    },
-    "pwa": {
-      "actions.js": "actions.js@1732628931717",
-      "app.html": "app.html@1732628931717",
-      "app.js": "app.js@1732628931717",
-      "app.webmanifest": "app.webmanifest@1732628931717",
-      "icons": {
-        "favicon.ico": "favicon.ico@1732628931717",
-        "icon-128.png": "icon-128.png@1732628931717",
-        "icon-168.png": "icon-168.png@1732628931717",
-        "icon-192.png": "icon-192.png@1732628931717",
-        "icon-256.png": "icon-256.png@1732628931717",
-        "icon-32.png": "icon-32.png@1732628931717",
-        "icon-512.png": "icon-512.png@1732628931717",
-        "icon-64.png": "icon-64.png@1732628931717",
-        "icon-96.png": "icon-96.png@1732628931717"
+    "js": {
+      "canvas.js": "canvas.js@1732634586772",
+      "chat.js": "chat.js@1732634586772",
+      "libs": {
+        "nosleep.js": "nosleep.js@1732634586772"
       },
-      "style.css": "style.css@1732628931717",
-      "sw.js": "sw.js@1732628931717"
-    },
-    "regie": {
-      "index.html": "index.html@1732628931718",
-      "js": {
-        "icon.js": "icon.js@1732628931718",
-        "pages.js": "pages.js@1732628931718",
-        "regie.js": "regie.js@1732628931718"
+      "main.js": "main.js@1732634586773",
+      "network.js": "network.js@1732634586773",
+      "pages": {
+        "avatar.js": "avatar.js@1732634586773",
+        "evenements.js": "evenements.js@1732634586773",
+        "msg_box.js": "msg_box.js@1732634586773",
+        "onboarding.js": "onboarding.js@1732634586773"
       },
-      "main.css": "main.css@1732628931718"
-    }
+      "qrcode.min.js": "qrcode.min.js@1732634586773",
+      "shader.js": "shader.js@1732634586773",
+      "sw.js": "sw.js@1732634586773"
+    },
+    "msg_box.html": "msg_box.html@1732634586773"
   }
 }
