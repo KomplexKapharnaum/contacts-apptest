@@ -98,6 +98,7 @@ app.get("/downloadMedia/", (req, res) => {
 });
 
 app.get("/downloadApp/", (req, res) => {
+  console.log("access to downloadApp path")
   const folderPath = path.join(__dirname, "download/app"); // Path to the folder you want to zip
   const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
 
@@ -225,13 +226,6 @@ io.on("connection", (socket) => {
     archive.pipe(output);
     archive.directory(folderPath, false);
     archive.finalize();
-  }
-
-
-  function sleep(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
   }
 
   function copyFiles(mediaNamesArray, destinationFolderPath, callback) {
