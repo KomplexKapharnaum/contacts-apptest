@@ -132,4 +132,4 @@ dist
 .pnp.*
 
 
-fileStructure.json
+download/fileStructure.json
