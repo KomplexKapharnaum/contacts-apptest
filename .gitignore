@@ -132,4 +132,5 @@ dist
 .pnp.*
 
 
-download/fileStructure.json
+download/app/fileStructure.json
+contact-52ec9-firebase-adminsdk-l2tjc-1ccfaa0183.json
