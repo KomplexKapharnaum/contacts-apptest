@@ -12,16 +12,7 @@ const axios = require('axios');
 // Load environment variables from .env file
 const dotenv = require('dotenv');
 dotenv.config();
-
-const GITHOOK_SECRET = process.env.GITHOOK_SECRET || 'secret'
 const PORT = process.env.PORT || 8080;
-
-// Hooks
-
-// import GithubWebHook from 'express-github-webhook';
-const GithubWebHook = require('express-github-webhook');
-const bodyParser = require('body-parser');
-var webhookHandler = GithubWebHook({ path: '/webhook', secret: GITHOOK_SECRET });
 
 const initializeWatcher = require('./js/trackAndUpdateJSON'); // does not work yet
 
@@ -31,29 +22,16 @@ initializeWatcher();
 // Configuration du serveur
 const app = express();
 
+// Apply Github Hooks
+require('./github-hook.js')(app);
+
+// Apply Packager Hook
+// require('./packager.js')(app);
+
 // create JSON tree
 createJsonIfNotExist()
 
-// Middlewares
-app.use(bodyParser.json());
-app.use(webhookHandler);
 app.use('/js', express.static(path.join(__dirname, 'www/js')));
-
-// HOOKS
-webhookHandler.on('*', function (event, repo, data) {
-  // console.log('hook', event, repo, data);
-  if (event === 'push') {
-    // git stash then git pull && pm2 restart contacts
-    console.log('processing push event (Pull / Restart)');
-    exec('git pull && npm i && pm2 restart apptest', (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log(stdout);
-    });
-  }
-});
 
 // Activer CORS pour toutes les routes
 app.use(cors());
