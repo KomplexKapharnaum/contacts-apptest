@@ -28,9 +28,6 @@ require('./github-hook.js')(app);
 // Apply Packager Hook
 // require('./packager.js')(app);
 
-// create JSON tree
-createJsonIfNotExist()
-
 app.use('/js', express.static(path.join(__dirname, 'www/js')));
 
 // Activer CORS pour toutes les routes
@@ -49,7 +46,7 @@ app.get("/", (req, res) => {
 // route de check for update
 app.get("/update/", (req, res) => {
 
-  const filePath = "./download/app/fileStructure.json";
+  const filePath = "./download/fileStructure.json";
 
   // Envoyer le fichier en réponse
   res.download(filePath, (err) => {
@@ -61,26 +58,26 @@ app.get("/update/", (req, res) => {
 });
 
 // Route de téléchargement de fichier
-app.get("/downloadMedia/", (req, res) => {
-  console.log("Request to download the folder received");
-  const zipFilePath = path.join(__dirname, 'downloadMedia.zip');
-  if (!fs.existsSync(zipFilePath)) {
-    return res.status(404).send('ZIP file not found');
-  }
+// app.get("/downloadMedia/", (req, res) => {
+//   console.log("Request to download the folder received");
+//   const zipFilePath = path.join(__dirname, 'download/downloadMedia.zip');
+//   if (!fs.existsSync(zipFilePath)) {
+//     return res.status(404).send('ZIP file not found');
+//   }
 
-  res.download(zipFilePath, 'folder.zip', (err) => {
-    if (err) {
-      console.error('Error sending the ZIP file:', err);
-      res.status(500).send('Error sending ZIP file');
-    } else {
-      console.log('ZIP file sent successfully.');
-    }
-  });
-});
+//   res.download(zipFilePath, 'folder.zip', (err) => {
+//     if (err) {
+//       console.error('Error sending the ZIP file:', err);
+//       res.status(500).send('Error sending ZIP file');
+//     } else {
+//       console.log('ZIP file sent successfully.');
+//     }
+//   });
+// });
 
 app.get("/downloadApp/", (req, res) => {
   console.log("access to downloadApp path")
-  const folderPath = path.join(__dirname, "./download/app"); // Path to the folder you want to zip
+  const folderPath = path.join(__dirname, "./appdata"); // Path to the folder you want to zip
   const zipFileName = "downloadedApp.zip"; // Name of the zip file to be created
 
   // Create a zip archive
@@ -105,10 +102,12 @@ app.get("/downloadApp/", (req, res) => {
     console.error("Erreur lors de l'archivage :", err);
     res.status(500).send("Erreur lors de l'archivage");
   });
+
 });
 
 // Démarrer le serveur HTTP
-const server = http.createServer(app); // Use HTTPS with your certificates
+const server = http.createServer(app); 
+
 // Initialiser Socket.IO sur le serveur HTTPS
 const io = socketIo(server, {
   cors: {
@@ -261,16 +260,8 @@ function findAllFile(directoryPath) {
   return null;
 }
 
-function createJsonIfNotExist(){
-  let jsonFilePath = "./download/app/fileStructure.json"
-  if (!fs.existsSync(jsonFilePath)) {
-    console.log(`Creating ${jsonFilePath}...`);
-    fs.writeFileSync(jsonFilePath, JSON.stringify({}, null, 2), 'utf-8');
-  } 
-}
-
 function scanDirectory(directoryPath, basePath) {
-    const jsonFilePath = path.join("./download/app", 'fileStructure.json');
+  const jsonFilePath = path.join("./download", 'fileStructure.json');
   let structure = {};
 
     // Read existing structure if the file exists
@@ -310,9 +301,16 @@ function updateJSONWithFileStructure(outputPath, directoryPath) {
 }
 
 // Fonction pour trouver le dossier "app" et mettre à jour le JSON
-function findAllFileAndUpdateJson(outputPath, baseDirectory) {
+function findAllFileAndUpdateJson(outputPath, appPath) 
+{
+  // check if the appPath folder exists
+  if (!fs.existsSync(appPath)) {
+    console.log(`Le dossier ${appPath} n'existe pas`);
+    return;
+  }
+
   // Recherche du dossier "app" dans le répertoire de base
-  const allFilePath = findAllFile(baseDirectory);
+  const allFilePath = findAllFile(appPath);
 
   if (allFilePath) {
     console.log(`Dossier trouvé à: ${allFilePath}`);
@@ -323,9 +321,9 @@ function findAllFileAndUpdateJson(outputPath, baseDirectory) {
 }
 
 // Exemple d'utilisation
-const outputPath = './download/app/fileStructure.json'; // Chemin du fichier JSON de sortie
-const directoryPath = './download'; // Répertoire de base où chercher "app"
-findAllFileAndUpdateJson(outputPath, directoryPath);
+const outputPath = './download/fileStructure.json'; // Chemin du fichier JSON de sortie
+const appPath = './appdata'; // Répertoire de base où chercher "app"
+findAllFileAndUpdateJson(outputPath, appPath);
 
 // Démarrer le serveur Socket.IO sur le même port
 server.listen(PORT, () => {
@@ -378,7 +376,15 @@ app.post('/send-notification', async (req, res) => {
   }
 });
 
-// Serve the HTML page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/index.html'));
+// Notification sender
+app.get('/notif', (req, res) => {
+  res.sendFile(path.join(__dirname, 'www/notif/index.html'));
 });
+
+// App web launcher
+app.get('/app', (req, res) => {
+  res.sendFile(path.join(__dirname, 'www/launcher/index.html'));
+})
+
+// Static appdata
+app.use('/appdata', express.static(path.join(__dirname, 'appdata')));
