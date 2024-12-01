@@ -1,13 +1,20 @@
 // Load environment variables from .env file
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
 const GITHOOK_SECRET = process.env.GITHOOK_SECRET || 'secret'
 
+function log(msg) {
+  console.log(`[\x1b[32mWebhook\x1b[0m]\t${msg}`);
+}
+
 
 // import GithubWebHook from 'express-github-webhook';
-const GithubWebHook = require('express-github-webhook');
-const bodyParser = require('body-parser');
+// const GithubWebHook = require('express-github-webhook');
+// const bodyParser = require('body-parser');
+import GithubWebHook from 'express-github-webhook';
+import bodyParser from 'body-parser';
 var webhookHandler = GithubWebHook({ path: '/webhook', secret: GITHOOK_SECRET });
 
 // HOOKS
@@ -26,12 +33,13 @@ webhookHandler.on('*', function (event, repo, data) {
     }
   });
 
-function prepareApp(app) {
+function githubHook(app) {
+
     // Middlewares
     app.use(bodyParser.json());
     app.use(webhookHandler);
 
-    console.log('Github Webhook is ready');
+    log('ready.\n----------------------');
 }
 
-module.exports = prepareApp;
+export {githubHook};
