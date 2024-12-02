@@ -8,7 +8,7 @@ dotenv.config();
 const GITHOOK_SECRET = process.env.GITHOOK_SECRET || 'secret'
 
 function log(msg) {
-  console.log(`[\x1b[32mWebhook\x1b[0m]\t${msg}`);
+  console.log(`[\x1b[33mWebhook\x1b[0m]\t${msg}`);
 }
 
 
