@@ -10,7 +10,7 @@ document.getElementById('main').innerHTML = 'OK';
 
 console.log('done main.js');
 
-var socket = io();
+var socket = io('https://apptest.kxkm.net');
 
 socket.on('ping', function() {
     console.log('ping');
