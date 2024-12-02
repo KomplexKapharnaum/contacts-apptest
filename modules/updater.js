@@ -3,7 +3,7 @@ import fs from "fs";
 import crypto from "crypto";
 import path from 'path';
 import { fileURLToPath } from 'url';
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __basepath = path.resolve(path.dirname(fileURLToPath(import.meta.url))+ "/..")
 
 // Load environment variables from .env file
 import dotenv from 'dotenv';
@@ -23,8 +23,11 @@ const DOWNLOAD_DIR  = "download";
 const ZIP_FILENAME  = "appdata.zip";
 
 var APPINFO = {
-    'appzip_url': null,
-    'appzip_hash': null,
+    'appzip': {
+        'name': ZIP_FILENAME,
+        'url': null,
+        'hash': null
+    },
     'media_tree': {}
 };
 
@@ -35,8 +38,8 @@ var APPINFO = {
 function compressFolder(dir) {
     return new Promise((resolve, reject) => {
 
-        const APPDATA_PATH = __dirname + "/" + dir;
-        const ZIP_FILE_PATH = __dirname + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME;
+        const APPDATA_PATH = __basepath + "/" + dir;
+        const ZIP_FILE_PATH = __basepath + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME;
 
         // remove existing ZIP file
         if (fs.existsSync(ZIP_FILE_PATH))
@@ -81,7 +84,7 @@ function bundleAppData()
                 });
 
                 input.on('end', () => {
-                    APPINFO.appzip_hash = hash.digest('hex');
+                    APPINFO.appzip.hash = hash.digest('hex');
                     resolve();
                 });
 
@@ -117,7 +120,7 @@ function fileCrowler(path) {
 // build Media tree
 function buildMediaTree() 
 {
-    const MEDIA_PATH = __dirname + "/" + MEDIA_DIR;
+    const MEDIA_PATH = __basepath + "/" + MEDIA_DIR;
     APPINFO.media_tree = fileCrowler(MEDIA_PATH);
 }
 
@@ -163,9 +166,9 @@ async function updater(app, io) {
     });
 
     // Download appdata.zip
-    APPINFO.appzip_url = "/update/app";
-    app.get(APPINFO.appzip_url, (req, res) => {
-        res.download(__dirname + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME);
+    APPINFO.appzip.url = '/update/appdata';
+    app.get(APPINFO.appzip.url, (req, res) => {
+        res.download(__basepath + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME);
     });
 
     // Display APPINFO (beautify media_tree)

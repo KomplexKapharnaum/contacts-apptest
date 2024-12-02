@@ -8,6 +8,10 @@ import path from "path";
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function log(msg) {
+  console.log(`[\x1b[36mServer\x1b[0m]\t${msg}`);
+}
+
 // Starting
 console.log("                                                                                ")
 console.log("░░      ░░░░      ░░░   ░░░  ░░        ░░░      ░░░░      ░░░        ░░░      ░░")
@@ -16,7 +20,7 @@ console.log("▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓  ▓▓  ▓  ▓  ▓�
 console.log("█  ████  ██  ████  ██  ██    █████  █████        ██  ████  █████  ███████████  █")
 console.log("██      ████      ███  ███   █████  █████  ████  ███      ██████  ██████      ██")
 console.log("                                                                                ")
-
+log('Starting...');
 
 // Load environment variables from .env file
 // const dotenv = require('dotenv');
@@ -50,15 +54,15 @@ app.use((req, res, next) => {
 //
 
 // Apply Github Hooks
-import {githubHook} from './github-hook.js';
+import {githubHook} from './modules/github-hook.js';
 githubHook(app);
 
 // Apply Notifier
-import {notifier} from './notifier.js';
+import {notifier} from './modules/notifier.js';
 notifier(app);
 
 // Apply Updater
-import {updater} from './updater.js';
+import {updater} from './modules/updater.js';
 await updater(app, io);
 
 //
@@ -67,11 +71,9 @@ await updater(app, io);
 
 // Écouter les connexions Socket.IO
 io.on("connection", (socket) => {
-  console.log("\tS.IO: Un utilisateur s'est connecté");
 
   // Gérer la déconnexion
   socket.on("disconnect", () => {
-    console.log("\tS.IO: Un utilisateur s'est déconnecté");
   });
 });
 
@@ -85,12 +87,12 @@ app.use(express.static(path.join(__dirname, 'www')));
 
 // App web launcher
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/launcher/launcher.html'));
+  res.sendFile(path.join(__dirname, 'www/weblauncher/weblauncher.html'));
 })
 
 // Notification sender
-app.get('/notif', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/notif/index.html'));
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'www/admin/index.html'));
 });
 
 // Static appdata
@@ -101,5 +103,5 @@ app.use('/media', express.static(path.join(__dirname, 'media')));
 
 // Démarrer le serveur
 server.listen(PORT, () => {
-  console.log(`Serveur started on port ${PORT}`);
+  log(`started on port ${PORT}`);
 });

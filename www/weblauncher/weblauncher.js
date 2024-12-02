@@ -5,8 +5,8 @@ document.CURRENT_HASH = '';
 // Fetch zip, unzip and replace app.html
 function updateApp() 
 {   
-    if (document.CURRENT_HASH != document.APPINFO.appzip_hash) {
-        fetch(document.APPINFO.appzip_url)
+    if (document.CURRENT_HASH != document.APPINFO.appzip.hash) {
+        fetch(document.APPINFO.appzip.url)
             .then(response => response.blob())
             .then(data => {
                 const zipReader = new zip.ZipReader( new zip.BlobReader(data) );
@@ -17,8 +17,8 @@ function updateApp()
                             if (entry.filename == 'app.html') {
                                 entry.getData(new zip.TextWriter())
                                     .then(text => {
-                                        // replace $BASEPATH$ with /appdata
-                                        text = text.replace(/\$BASEPATH\$/g, '/appdata');
+                                        // replace $BASEPATH$ with empty string 
+                                        text = text.replace(/\$BASEPATH\$/g, '');  
 
                                         // replace full document
                                         document.open();
@@ -26,7 +26,7 @@ function updateApp()
                                         document.close();
 
                                         // update CURRENT_HASH
-                                        document.CURRENT_HASH = document.APPINFO.appzip_hash;
+                                        document.CURRENT_HASH = document.APPINFO.appzip.hash;
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
