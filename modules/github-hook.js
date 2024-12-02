@@ -1,3 +1,5 @@
+import { exec } from 'child_process';
+
 // Load environment variables from .env file
 // const dotenv = require('dotenv');
 import dotenv from 'dotenv';
