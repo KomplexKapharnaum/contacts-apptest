@@ -23,7 +23,7 @@ document.UPDATEAPP = function(info)
                                 entry.getData(new zip.TextWriter())
                                     .then(text => {
                                         // replace $BASEPATH$ with empty string (In Cordova -> replace with persistent storage path)
-                                        text = text.replace(/\$BASEPATH\$/g, '');  
+                                        text = text.replace(/\$BASEPATH\$/g, '/appdata');  
 
                                         // replace full document
                                         document.open();
