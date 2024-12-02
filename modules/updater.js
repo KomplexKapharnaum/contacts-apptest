@@ -17,10 +17,10 @@ function error(msg) {
     console.error(`[Updater]\t${msg}`);
 }
 
-const APPDATA_DIR   = "appdata";
-const MEDIA_DIR     = "media";
-const DOWNLOAD_DIR  = "download";
-const ZIP_FILENAME  = "appdata.zip";
+const APPDATA_DIR   = process.env.APPDATA_DIR || "appdata";
+const MEDIA_DIR     = process.env.MEDIA_DIR || "media";
+const DOWNLOAD_DIR  = process.env.DOWNLOAD_DIR || "download";
+const ZIP_FILENAME  = process.env.ZIP_FILENAME || "appdata.zip";
 
 var APPINFO = {
     'appzip': {
@@ -30,6 +30,9 @@ var APPINFO = {
     },
     'media_tree': {}
 };
+
+var watcherTimer = null;
+const watcherWait = 2000;
 
 // const GITHOOK_SECRET = process.env.GITHOOK_SECRET || 'secret'
 
@@ -136,22 +139,32 @@ async function updater(app, io) {
 
     // Watch for changes in APPDATA
     fs.watch(APPDATA_DIR, { recursive: true }, (eventType, filename) => {
-        console.log(`\nAPPDATA changed: ${eventType} ${filename}`);
-        bundleAppData()
-            .then(() => {
-                console.log("APPDATA updated");
-                io.emit('update', APPINFO);
-            });
+
+        if (watcherTimer) clearTimeout(watcherTimer);
+
+        watcherTimer = setTimeout(() => {
+            console.log(`\nAPPDATA changed: ${eventType} ${filename}`);
+            bundleAppData()
+                .then(() => {
+                    console.log("APPDATA updated");
+                    io.emit('update', APPINFO);
+                });
+        }, watcherWait);
     });
 
     // Watch for changes in MEDIA
     fs.watch(MEDIA_DIR, { recursive: true }, (eventType, filename) => {
-        console.log(`\nMEDIA changed: ${eventType} ${filename}`);
-        buildMediaTree()
-            .then(() => {
-                console.log("MEDIA updated");
-                io.emit('update', APPINFO);
-            });
+
+        if (watcherTimer) clearTimeout(watcherTimer);
+
+        watcherTimer = setTimeout(() => {
+            console.log(`\nMEDIA changed: ${eventType} ${filename}`);
+            buildMediaTree()
+                .then(() => {
+                    console.log("MEDIA updated");
+                    io.emit('update', APPINFO);
+                });
+        }, watcherWait);
     });
 
     io.on("connection", (socket) => {
