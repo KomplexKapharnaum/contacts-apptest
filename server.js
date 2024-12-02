@@ -77,6 +77,10 @@ io.on("connection", (socket) => {
   });
 });
 
+// Ping
+setInterval(() => {
+  io.emit('ping');
+}, 2000);
 
 //
 // Routes
