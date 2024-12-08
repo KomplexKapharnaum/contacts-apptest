@@ -91,7 +91,7 @@ app.use(express.static(path.join(__dirname, 'www')));
 
 // App web launcher
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/weblauncher/weblauncher.html'));
+  res.sendFile(path.join(__dirname, 'www/launcher/index.html'));
 })
 
 // Notification sender
