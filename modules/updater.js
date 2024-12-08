@@ -17,10 +17,10 @@ function error(msg) {
     console.error(`[Updater]\t${msg}`);
 }
 
-const APPDATA_DIR   = process.env.APPDATA_DIR || "appdata";
-const MEDIA_DIR     = process.env.MEDIA_DIR || "media";
-const TEMP_DIR      = process.env.TEMP_DIR || "_tmp";
-const ZIP_FILENAME  = process.env.ZIP_FILENAME || "appdata.zip";
+const APPDATA_DIR   = process.env.APPDATA_DIR   || "www/app";
+const MEDIA_DIR     = process.env.MEDIA_DIR     || "www/media";
+const TEMP_DIR      = process.env.TEMP_DIR      || "_tmp";
+const ZIP_FILENAME  = process.env.ZIP_FILENAME  || "app.zip";
 
 var APPINFO = {
     'appzip': {

@@ -4,6 +4,7 @@ import { createServer } from 'http';
 
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -73,14 +74,9 @@ await updater(app, io);
 io.on("connection", (socket) => {
 
   // Gérer la déconnexion
-  socket.on("disconnect", () => {
-  });
+  socket.on("disconnect", () => { });
 });
 
-// Ping
-setInterval(() => {
-  io.emit('ping');
-}, 2000);
 
 //
 // Routes
@@ -89,21 +85,26 @@ setInterval(() => {
 // www static files
 app.use(express.static(path.join(__dirname, 'www')));
 
-// App web launcher
+// App web launcher (replace $BASEPATH$ with /app)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/launcher/index.html'));
+  let html = fs.readFileSync(path.join(__dirname, 'www/app/app.html'), 'utf8');
+  html = html.replace(/\$BASEPATH\$/g, '/app');
+  res.send(html);
 })
+
+// Static appdata
+app.use('/app', express.static(path.join(__dirname, 'www/app')));
 
 // Notification sender
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'www/admin/index.html'));
+  res.sendFile(path.join(__dirname, 'admin/index.html'));
 });
 
-// Static appdata
-app.use('/appdata', express.static(path.join(__dirname, 'appdata')));
+// Static admin
+app.use('/admin', express.static(path.join(__dirname, 'www/admin')));
 
 // Static media
-app.use('/media', express.static(path.join(__dirname, 'media')));
+app.use('/media', express.static(path.join(__dirname, 'www/media')));
 
 // Démarrer le serveur
 server.listen(PORT, () => {
