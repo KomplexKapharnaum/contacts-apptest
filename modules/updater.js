@@ -19,7 +19,7 @@ function error(msg) {
 
 const APPDATA_DIR   = process.env.APPDATA_DIR || "appdata";
 const MEDIA_DIR     = process.env.MEDIA_DIR || "media";
-const DOWNLOAD_DIR  = process.env.DOWNLOAD_DIR || "download";
+const TEMP_DIR      = process.env.TEMP_DIR || "_tmp";
 const ZIP_FILENAME  = process.env.ZIP_FILENAME || "appdata.zip";
 
 var APPINFO = {
@@ -42,7 +42,7 @@ function compressFolder(dir) {
     return new Promise((resolve, reject) => {
 
         const APPDATA_PATH = __basepath + "/" + dir;
-        const ZIP_FILE_PATH = __basepath + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME;
+        const ZIP_FILE_PATH = __basepath + "/" + TEMP_DIR + "/" + ZIP_FILENAME;
 
         // remove existing ZIP file
         if (fs.existsSync(ZIP_FILE_PATH))
@@ -130,6 +130,9 @@ function buildMediaTree()
 
 async function updater(app, io) {
 
+    // Create TEMP_DIR if not exists
+    if (!fs.existsSync(TEMP_DIR))
+        fs.mkdirSync(TEMP_DIR);
 
     // Bundle APPDATA
     await bundleAppData();
@@ -181,7 +184,7 @@ async function updater(app, io) {
     // Download appdata.zip
     APPINFO.appzip.url = '/update/appdata';
     app.get(APPINFO.appzip.url, (req, res) => {
-        res.download(__basepath + "/" + DOWNLOAD_DIR + "/" + ZIP_FILENAME);
+        res.download(__basepath + "/" + TEMP_DIR + "/" + ZIP_FILENAME);
     });
 
     // Display APPINFO (beautify media_tree)
